@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="questionBookService" class="service.QuestionBookService">
+        <constructor-arg value="/questions.csv"/>
+    </bean>
+
+<!--    <bean id="questionBookFactoryBean" class="factorybean.QuestionBookFactoryBean">-->
+<!--        <constructor-arg ref="questionBookService"/>-->
+<!--    </bean>-->
+
+    <bean id="questionBook" class="factorybean.QuestionBookFactoryBean">
+        <constructor-arg ref="questionBookService"/>
+    </bean>
+</beans>
